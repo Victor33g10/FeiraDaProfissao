@@ -1,0 +1,44 @@
+:root {
+    --main-blue: #034ea2;
+    --main-green: #006b2d;
+    --main-yellow: #fdb913;
+    --main-black: #454545;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+header {
+    background: var(--main-blue);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.btn {
+    background: var(--main-blue);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+

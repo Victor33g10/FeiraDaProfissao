@@ -4,41 +4,410 @@
     --main-yellow: #fdb913;
     --main-black: #454545;
 }
-body {
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    color: #333;
 }
 
+body {
+    background: #f2f2f2;
+    color: var(--main-black);
+}
+
+/* HEADER */
 header {
+    width: 100%;
     background: var(--main-blue);
     color: white;
-    padding: 20px;
+    padding: 15px 30px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 header nav a {
+    margin-left: 20px;
     color: white;
-    margin-left: 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
+header nav a:hover {
+    color: var(--main-yellow);
+}
+
+/* HERO */
 .hero {
-    
-    color: white;
-    padding: 120px 20px;
-    text-align: center;
+    width: 100%;
+    padding: 40px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* ANIMAÇÃO DO TEXTO */
+.animated-text {
+    animation: fadeSlide 1.5s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+    max-width: 40%;
+}
+
+.hero-content h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    color: var(--main-blue);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: var(--main-black);
 }
 
 .btn {
-    background: var(--main-blue);
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 5px;
+    display: inline-block;
+    background: var(--main-green);
+    padding: 12px 22px;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
 }
 
+.btn:hover {
+    background: var(--main-yellow);
+    color: var(--main-black);
+}
+
+/* CARROSSEL */
+.carousel {
+    position: relative;
+    width: 55%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+/* SETAS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--main-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.arrow:hover {
+    background: var(--main-yellow);
+    color: var(--main-black);
+}
+
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .carousel {
+        width: 100%;
+    }
+}
+
+/* CURSOS */
+.cursos-section {
+    padding: 40px;
+    background: #fff;
+}
+
+.cursos-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--main-blue);
+}
+
+.cursos-section h2 {
+    margin-top: 30px;
+    font-size: 28px;
+    color: var(--main-green);
+}
+
+.cursos-section p {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.cursos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.curso-card {
+    padding: 20px;
+    background: var(--main-blue);
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.curso-card:hover {
+    background: var(--main-yellow);
+    color: var(--main-black);
+    transform: scale(1.05);
+}
+
+/* NOVOS CURSOS */
+.curso-card.new {
+    background: var(--main-green);
+}
+
+.curso-card.new:hover {
+    background: var(--main-yellow);
+    color: var(--main-black);
+}
+
+/* PAGE SECTION */
+.page-section {
+    padding: 40px;
+    background: white;
+}
+
+.page-section h1 {
+    font-size: 36px;
+    color: var(--main-blue);
+    margin-bottom: 15px;
+}
+
+.page-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* FORM CONTATO */
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+.form-contato label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--main-black);
+}
+
+.form-contato input,
+.form-contato textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--main-blue);
+    font-size: 16px;
+}
+
+.form-contato button {
+    background: var(--main-green);
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-contato button:hover {
+    background: var(--main-yellow);
+    color: var(--main-black);
+}
+
+/* CONTATO */
+.contato-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.contato-card {
+    background: var(--main-blue);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.contato-card:hover {
+    background: #0055aa;
+    transform: scale(1.05);
+}
+
+.form-contato {
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--main-blue);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.form-contato button {
+    background: var(--main-green);
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-contato button:hover {
+    background: #009f40;
+}
+
+.mapa-container {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ========================= */
+/* ANIMAÇÕES SUAVES ADICIONADAS */
+/* ========================= */
+
+/* Fade-in geral */
+body {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação dos cards */
+.contato-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: subir 0.8s forwards;
+}
+
+.contato-card:nth-child(1) { animation-delay: 0.2s; }
+.contato-card:nth-child(2) { animation-delay: 0.4s; }
+.contato-card:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes subir {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Inputs com foco suave */
+.form-contato input,
+.form-contato textarea {
+    transition: 0.3s ease;
+}
+
+.form-contato input:focus,
+.form-contato textarea:focus {
+    border-color: var(--main-yellow);
+    box-shadow: 0 0 8px rgba(253,185,19,0.7);
+    transform: scale(1.03);
+}
+
+/* Botão animado */
+.form-contato button {
+    transition: 0.3s ease;
+}
+
+.form-contato button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,107,45,0.5);
+}
+
+/* Títulos com slide */
+.page-section h1,
+.page-section h2 {
+    opacity: 0;
+    animation: slideTitle 0.8s forwards ease-out;
+}
+
+@keyframes slideTitle {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Texto com fade suave */
+.page-section p {
+    opacity: 0;
+    animation: fadeTxt 1s forwards;
+}
+
+@keyframes fadeTxt {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Mapa pulsando */
+.mapa-container {
+    animation: borderGlow 2s infinite alternate;
+}
+
+@keyframes borderGlow {
+    0% { box-shadow: 0 0 5px var(--main-yellow); }
+    100% { box-shadow: 0 0 20px var(--main-green); }
+}

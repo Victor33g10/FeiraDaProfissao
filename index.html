@@ -9,36 +9,41 @@
 <body>
 
 <header>
-    <div>CETI DR DIONISIO RODRIGUES NOGUEIRA</div>
+    <div class="logo">CETI DR DIONISIO RODRIGUES NOGUEIRA</div>
     <nav>
         <a href="index.html">Início</a>
         <a href="cursos.html">Cursos</a>
         <a href="sobre.html">Sobre</a>
-        <a href="Contato.html">Contato</a>
+        <a href="contato.html">Contato</a>
     </nav>
 </header>
 
-<div class="carousel-container">
-    <h2></h2>
-    <div class="carousel-track">
-        <img src="img/images.jpg" alt="Foto da escola 1">
-        <img src="img/download (1).jpg" alt="Foto da escola 2">
-        <img src="img/download (2).jpg" alt="Foto da escola 3">
-        <img src="img/download.jpg" alt="Foto da escola 4">
-        <img src="img/download (3).jpg" alt="Foto da escola 5">
-
-    </div>
-    <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
-</div>
-<main>
-...
-
 <section class="hero">
-    <h1>Excelência na Educação Pública</h1>
-    <p>Formando líderes e cidadãos conscientes para o futuro do Piauí.</p>
-    <a class="btn" href="projetos.html">Ver Projetos</a>
+
+    <div class="hero-content animated-text">
+        <h1>Feira das Profissões 2024</h1>
+        <p>Conheça os projetos desenvolvidos pelos alunos do CETI Dr. Dionísio Rodrigues Nogueira.</p>
+        <a class="btn" href="projetos.html">Ver Projetos</a>
+    </div>
+
+    <!-- CARROSSEL -->
+    <div class="carousel">
+
+        <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
+
+        <div class="carousel-track" id="track">
+            <img src="img1.jpg" alt="Imagem 1">
+            <img src="img2.jpg" alt="Imagem 2">
+            <img src="img3.jpg" alt="Imagem 3">
+            <img src="img4.jpg" alt="Imagem 4">
+        </div>
+
+        <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
 </section>
 
-<script src="Script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>

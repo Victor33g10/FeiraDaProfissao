@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim Escolar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boletim.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Boletim do Aluno</h2>
+
+    <div id="dadosAluno"></div>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Disciplina</th>
+            <th>Média</th>
+            <th>Situação</th>
+        </tr>
+        <tr>
+            <td>Matemática</td>
+            <td>8.7</td>
+            <td>Aprovado</td>
+        </tr>
+        <tr>
+            <td>Português</td>
+            <td>7.5</td>
+            <td>Aprovado</td>
+        </tr>
+        <tr>
+            <td>História</td>
+            <td>6.3</td>
+            <td>Aprovado</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+const usuario = JSON.parse(localStorage.getItem("usuario"));
+document.getElementById("dadosAluno").innerHTML =
+    `<p><strong>Aluno:</strong> ${usuario.nome}</p>
+     <p><strong>E-mail:</strong> ${usuario.email}</p>`;
+</script>
+
+</body>
+</html>

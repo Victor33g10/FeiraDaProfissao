@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Boletim Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Criar Cadastro</h2>
+
+    <form id="formCadastro">
+        <input type="text" id="nome" placeholder="Nome completo" required>
+        <input type="email" id="email" placeholder="E-mail" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p>Já tem conta? <a href="login.html">Entrar</a></p>
+</div>
+
+<script>
+document.getElementById("formCadastro").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    const usuario = { nome, email, senha };
+
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+
+    alert("Cadastro realizado com sucesso!");
+    window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>

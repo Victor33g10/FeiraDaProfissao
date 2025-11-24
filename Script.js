@@ -27,6 +27,3 @@ function moveSlide(direction) {
     track.style.transform = `translateX(${offset}%)`;
 }
 
-// Opcional: Chama moveSlide(0) no carregamento para garantir que o estado inicial esteja correto.
-// Não é estritamente necessário se o CSS estiver certo, mas é uma boa prática.
-// window.onload = () => moveSlide(0);

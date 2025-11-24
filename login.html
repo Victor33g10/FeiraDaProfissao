@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Boletim</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Entrar</h2>
+
+    <form id="formLogin">
+        <input type="email" id="email" placeholder="E-mail" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p>Não tem conta? <a href="cadastro.html">Cadastrar</a></p>
+</div>
+
+<script>
+document.getElementById("formLogin").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    if(!usuario){
+        alert("Nenhum cadastro encontrado!");
+        return;
+    }
+
+    if(email === usuario.email && senha === usuario.senha){
+        alert("Login realizado!");
+        window.location.href = "boletim.html";
+    } else {
+        alert("E-mail ou senha incorretos!");
+    }
+});
+</script>
+
+</body>
+</html>

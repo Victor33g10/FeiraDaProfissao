@@ -3,6 +3,11 @@
     --main-green: #006b2d;
     --main-yellow: #fdb913;
     --main-black: #454545;
+
+    --var--green: #4AFC14;
+    --var--green: #14FC86;
+    --var--green: #14FC37;
+    --var--green: #68FC7F;
 }
 
 * {
@@ -20,12 +25,29 @@ body {
 /* HEADER */
 header {
     width: 100%;
-    background: var(--main-blue);
+    background: #006b2d;
     color: white;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px 30px;
+   
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%; /* opcional */
 }
 
 header nav a {
@@ -36,7 +58,7 @@ header nav a {
 }
 
 header nav a:hover {
-    color: var(--main-yellow);
+    color: #14FC86;
 }
 
 /* HERO */
@@ -89,70 +111,61 @@ header nav a:hover {
 }
 
 .btn:hover {
-    background: var(--main-yellow);
+    background: #14FC86;
     color: var(--main-black);
 }
 
-/* CARROSSEL */
+/* --- Estilos do Carrossel --- */
 .carousel {
     position: relative;
-    width: 55%;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 80%; /* Ajuste o tamanho conforme necessário */
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden; /* **CRUCIAL:** Esconde as imagens que estão fora da área visível */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-track {
-    display: flex;
-    transition: transform 0.6s ease-in-out;
+    display: flex; /* **CRUCIAL:** Coloca as imagens lado a lado */
+    transition: transform 0.5s ease-in-out; /* Adiciona uma animação suave ao deslizar */
 }
 
-.carousel img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
+.carousel-track img {
+    width: 100%; /* Faz com que cada imagem ocupe a largura total do carrossel */
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    height: auto;
+    display: block;
 }
 
-/* SETAS */
+/* --- Estilos dos Botões de Navegação --- */
 .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--main-blue);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 15px 10px;
     cursor: pointer;
+    z-index: 10;
     font-size: 24px;
-    border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
 .arrow:hover {
-    background: var(--main-yellow);
-    color: var(--main-black);
+    opacity: 1;
 }
 
 .left {
     left: 10px;
+    border-radius: 0 5px 5px 0;
 }
 
 .right {
     right: 10px;
-}
-
-/* RESPONSIVO */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content {
-        max-width: 100%;
-    }
-    .carousel {
-        width: 100%;
-    }
+    border-radius: 5px 0 0 5px;
 }
 
 /* CURSOS */

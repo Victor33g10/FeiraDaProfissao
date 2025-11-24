@@ -1,44 +1,260 @@
 :root {
-    --main-blue: #034ea2;
-    --main-green: #006b2d;
-    --main-yellow: #fdb913;
-    --main-black: #454545;
-}
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
+     --main-blue: #034ea2;
+     --main-green: #006b2d;
+     --main-yellow: #fdb913;
+     --main-black: #454545;
+    --light-gray: #f4f4f4; /* Padronizando a cor de fundo cinza */
 }
 
+body {
+     margin: 0;
+     font-family: 'Poppins', Arial, sans-serif; /* Sugestão de fonte mais moderna */
+     color: #333;
+    line-height: 1.6; /* Melhorando a legibilidade */
+    background-color: white;
+}
+
+/* NOVO: Container para Centralizar o Conteúdo Principal */
+.container {
+    max-width: 1100px; /* Largura máxima, ajuste conforme desejar */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 0 20px; /* Adiciona espaçamento interno nas laterais */
+}
+
+/* Ajustes no Header */
 header {
-    background: var(--main-blue);
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+     background: var(--main-green);
+     color: white;
+     padding: 20px 0; /* Ajustado para usar o padding do .container */
+     display: flex;
+     justify-content: space-between; /* Espaço entre o nome da escola e a nav */
+     align-items: center;
+}
+
+header > div { /* Estiliza o nome da escola */
+    font-size: 1.5em;
+    font-weight: 700;
 }
 
 header nav a {
-    color: white;
-    margin-left: 15px;
-    text-decoration: none;
-    font-weight: bold;
+     color: white;
+     margin-left: 25px; /* Aumentei o espaçamento entre os links */
+     text-decoration: none;
+     font-weight: 600;
+    transition: color 0.3s;
 }
 
+header nav a:hover {
+    color: var(--main-yellow);
+}
+
+/* --- Hero e Botão --- */
 .hero {
-    
-    color: white;
-    padding: 120px 20px;
-    text-align: center;
+     background: var(--main-blue); /* Cor de destaque */
+     color: white;
+     padding: 100px 20px;
+     text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
 }
 
 .btn {
-    background: var(--main-blue);
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
+     background: var(--main-yellow); /* Destaquei o botão com amarelo */
+     color: var(--main-black);
+     padding: 14px 30px;
+     border-radius: 5px;
+     text-decoration: none;
+     font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
 }
 
+.btn:hover {
+    background: #e6a711; /* Amarelo um pouco mais escuro no hover */
+}
+
+/* --- Seções Principais (Main) --- */
+main {
+    padding: 40px 0;
+}
+
+main section {
+    padding: 30px 0;
+}
+
+/* --- Destaques (Cards) usando Flexbox para organização --- */
+.destaques {
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.destaques h2 {
+    color: var(--main-green);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.cards-container {
+     display: flex;
+     justify-content: space-between; /* Distribui os cards uniformemente */
+    gap: 20px; /* Espaço entre os cards */
+    text-align: left;
+}
+
+.card {
+     flex: 1; /* Permite que os cards cresçam igualmente */
+     background: white;
+     padding: 25px;
+     border-radius: 8px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--main-blue);
+    margin-top: 0;
+}
+
+/* --- Missão e Valores --- */
+.missao-valores {
+    text-align: center;
+}
+
+.missao-valores h2 {
+    color: var(--main-green);
+    margin-bottom: 20px;
+}
+
+.missao-valores ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto 30px auto; /* Centraliza a lista */
+    text-align: left;
+}
+
+.missao-valores li {
+    background-color: #e6f3ff; /* Fundo azul claro para cada item */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-left: 5px solid var(--main-blue);
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+/* --- Media Queries (Responsividade) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Empilha a logo e a navegação */
+        padding: 20px;
+    }
+
+    header nav {
+        margin-top: 15px;
+    }
+
+    header nav a {
+        margin: 0 8px;
+    }
+
+    .hero {
+        padding: 80px 15px;
+    }
+
+    .cards-container {
+        flex-direction: column; /* Empilha os cards verticalmente */
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* --- Estilos para o Carrossel (SLIDER AUTOMÁTICO) --- */
+
+.carousel-container {
+    position: relative;
+    max-width: 900px; /* Largura máxima do carrossel */
+    margin: 40px auto; /* Centraliza o carrossel na página */
+    text-align: center;
+    background-color: var(--light-gray);
+    padding: 20px; /* Adicionado padding para melhor espaçamento interno */
+    border-radius: 8px;
+}
+
+.carousel-container h2 {
+    margin-bottom: 20px;
+    color: var(--main-green);
+}
+
+.carousel-track-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-track {
+    display: flex;
+    width: 500%; /* Para 5 imagens */
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-track img {
+    width: 20%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 18px;
+    line-height: 1;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    background: var(--main-blue);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Responsividade do Carrossel */
+@media (max-width: 600px) {
+    .carousel-track img {
+        height: 250px; /* Diminui a altura em telas menores */
+    }
+    .carousel-btn {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
